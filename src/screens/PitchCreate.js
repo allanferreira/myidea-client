@@ -64,12 +64,17 @@ export default class PitchCreate extends Component {
       <div className="pitchCreate">
         <div className="container">
           <div className="row">
-            <div className="col">
-              {this.state.message}
+            <div className="col-12">
+              {this.state.message ? 
+                <div className="alertMessage">
+                  {this.state.message}
+                </div>
+              : <div></div>}
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-lg-5 col-12">
+              <h1>Create a Pitch</h1>
               <label>
                 <span>Subject</span>
                 <input value={this.state.pitch.subject} onChange={this.inputChangeHandler.bind(this, 'subject')} type="text"/>

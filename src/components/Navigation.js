@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Auth from '../services/Auth'
+import './Navigation.css'
 
 export default class Navigation extends Component {
 
@@ -19,6 +20,13 @@ export default class Navigation extends Component {
                     ? 
                         <ul>
                             <li>
+                                <Link to='/pitches'>
+                                    <div className="logo">
+                                        <span>_my</span>Idea
+                                    </div>
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to='/pitches'>Pitches</Link>
                             </li>
                             <li>
@@ -27,6 +35,13 @@ export default class Navigation extends Component {
                         </ul>
                     :
                         <ul>
+                            <li>
+                                <Link to='/'>
+                                    <div className="logo">
+                                        <span>_my</span>Idea
+                                    </div>
+                                </Link>
+                            </li>
                             <li>
                                 <Link to='/'>Login</Link>
                             </li>

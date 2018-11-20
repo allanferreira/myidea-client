@@ -63,16 +63,23 @@ export default class Register extends Component {
   render() {
     return (
       <div className="register">
-        <div className="container">
+          <div className="container">
             <div className="row">
-              <div className="col">
-                {this.state.message}
-                {this.state.messageSuccess}
-                {this.state.messageError}
-              </div>
+                <div className="col-12">
+                  { this.state.message || this.state.messageSuccess || this.state.messageError 
+                    ? 
+                      <div className="alertMessage">
+                        {this.state.message}
+                        {this.state.messageSuccess}
+                        {this.state.messageError}
+                      </div>
+                    : <div></div>
+                  }
+                </div>
             </div>
             <div className="row">
-                <div className="col">
+                <div className="col-12 col-lg-5">
+                    <h1>Register</h1>
                     <label>
                       <span>Name</span>
                       <input value={this.state.name} onChange={this.inputChangeHandler.bind(this, 'name')} type="text"/>

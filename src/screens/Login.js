@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import PubSub from 'pubsub-js'
 import api from '../services/api'
 import Auth from '../services/Auth'
-import PubSub from 'pubsub-js'
 
 export default class Login extends Component {
 
@@ -61,7 +62,12 @@ export default class Login extends Component {
               </div>
             </div>
             <div className="row">
-                <div className="col">
+                <div className="col-lg col-12">
+                  <h1 className="title">
+                    Review your pitch with our <strong>Tone Analyzer</strong>
+                  </h1>
+                </div>
+                <div className="col-lg-5 col-12">
                     <label>
                       <span>Email</span>
                       <input value={this.state.email} onChange={this.inputChangeHandler.bind(this, 'email')} type="text"/>
@@ -70,7 +76,14 @@ export default class Login extends Component {
                       <span>Password</span>
                       <input value={this.state.password} onChange={this.inputChangeHandler.bind(this, 'password')} type="password"/>
                     </label>
-                    <button onClick={this.loginHandler.bind(this)}>Login</button>
+                    <div className="row">
+                      <div className="col">
+                        <button onClick={this.loginHandler.bind(this)}>Login</button>
+                      </div>
+                      <div className="col text-right">
+                        <Link to="/register">register your account</Link>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>

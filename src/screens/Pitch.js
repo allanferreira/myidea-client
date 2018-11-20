@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import PubSub from 'pubsub-js'
 import Auth from '../services/Auth'
 import api from '../services/api'
 import watson from '../services/watson'
-import PubSub from 'pubsub-js'
+import './Pitch.css'
 
 export default class Pitch extends Component {
  
@@ -90,73 +91,86 @@ export default class Pitch extends Component {
     return (
       <div className="pitch">
         <div className="container">
-          <div className="row">
-            <div className="col">
-              {this.state.message}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <label>
-                <span>Subject</span>
-                <input value={this.state.pitch.subject} onChange={this.inputChangeHandler.bind(this, 'subject')} type="text"/>
-              </label>
-              <label>
-                <span>Text</span>
-                <textarea value={this.state.pitch.text} onChange={this.inputChangeHandler.bind(this, 'text')}></textarea>
-              </label>
-              <button onClick={this.editHandler.bind(this)}>Edit</button>
-              
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              { this.state.review.document_tone.tones.length === 0 
-                ?
-                  <div>		
-                    <button onClick={this.analyzer.bind(this)}>Tone Analyze</button>
-                    { this.state.messageReview ? 
-                      <div>Write a large text in English</div>
-                    : <div></div> }
+        <div className="row">
+          <div className="col-12 col-lg-6">
+            <div className="row">
+              <div className="col-12">
+                {this.state.message ? 
+                  <div className="alertMessage">
+                    {this.state.message}
                   </div>
-                :
-                  <div>
-                    { this.state.review.sentences_tone.length === 0 
-                      ? 
-                      <div>
-                        { this.state.pitch.text }
+                : <div></div>}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <h1>Pitch</h1>
+                <label>
+                  <span>Subject</span>
+                  <input value={this.state.pitch.subject} onChange={this.inputChangeHandler.bind(this, 'subject')} type="text"/>
+                </label>
+                <label>
+                  <span>Text</span>
+                  <textarea value={this.state.pitch.text} onChange={this.inputChangeHandler.bind(this, 'text')}></textarea>
+                </label>
+                <button onClick={this.editHandler.bind(this)}>Edit</button>
+                
+              </div>
+            </div>
+            
+          </div>
+          <div className="col-12 col-lg-6">
+            <div className="row">
+              <div className="col analyzer">
+                { this.state.review.document_tone.tones.length === 0 
+                  ?
+                    <div>		
+                      <button onClick={this.analyzer.bind(this)}>Tone Analyze</button>
+                      { this.state.messageReview ? 
+                        <div>Write a large text in English</div>
+                      : <div></div> }
+                    </div>
+                  :
+                    <div>
+                      { this.state.review.sentences_tone.length === 0 
+                        ? 
                         <div>
-                          { this.state.review.document_tone.tones.map((tone, index) => 
-                            <div key={index}>{tone.tone_name}</div>
-                          )}
-                        </div>
-                      </div> 
-                      : 
-                      <div>
-                        { this.state.review.sentences_tone.map((sentence, index) => 
-                          <div key={index}>
-                            <div>Sentence {index+1}:</div>
-                            <div>
-                              <div>{sentence.text}</div>
-                              { sentence.tones.length > 0
-                                ? 
-                                <div>
-                                  { sentence.tones.map((tone, index) => 
-                                    <div key={index}>{tone.tone_name}</div>
-                                  )}
-                                </div>
-                                : 
-                                <div>Undefined tone</div>
-                              }
-                            </div>
+                          { this.state.pitch.text }
+                          <div class="tones">
+                            { this.state.review.document_tone.tones.map((tone, index) => 
+                              <div class="tone" key={index}>{tone.tone_name}</div>
+                            )}
                           </div>
-                        )}
-                      </div> 
-                    }
-                  </div>
-              }
+                        </div> 
+                        : 
+                        <div>
+                          { this.state.review.sentences_tone.map((sentence, index) => 
+                            <div key={index}>
+                              <div class="sentence-title">Sentence {index+1}:</div>
+                              <div>
+                                <div>{sentence.text}</div>
+                                { sentence.tones.length > 0
+                                  ? 
+                                  <div class="tones">
+                                    { sentence.tones.map((tone, index) => 
+                                      <div class="tone" key={index}>{tone.tone_name}</div>
+                                    )}
+                                  </div>
+                                  : 
+                                  <div>Undefined tone</div>
+                                }
+                              </div>
+                            </div>
+                          )}
+                        </div> 
+                      }
+                    </div>
+                }
+              </div>
             </div>
-          </div>
+          
+            </div>
+        </div>
         </div>
       </div>
     )

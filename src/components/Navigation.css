@@ -1,0 +1,29 @@
+.navigation {
+    border-bottom: 1px solid #e3e3e3;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.navigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.navigation li {
+    display: inline-block;
+    margin: 0;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.navigation li:first-child {
+    float: left;
+    font-size: 16px;
+}
+
+.navigation li:last-child {
+    margin-right: 0
+}

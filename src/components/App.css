@@ -1,8 +1,112 @@
 @import '../../node_modules/reset-css/reset.css';
 @import '../../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
+@import '../../node_modules/milligram/dist/milligram.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3rem;
+}
 
 .App {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+}
+
+.logo {
+  color: #616c77;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.logo span {
+  font-weight: bold;
+}
+
+.alertMessage {
+  background: #e3e3e3;
+  border-radius: 3px;
+  color: #9b4dca;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 4.6rem;
+  line-height: 1.2;
+}
+
+.title strong {
+  color: #9b4dca;
+  font-weight: 400;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+
+@media (min-width: 576px) {
+  .text-sm-left {
+    text-align: left !important;
+  }
+  .text-sm-right {
+    text-align: right !important;
+  }
+  .text-sm-center {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-md-left {
+    text-align: left !important;
+  }
+  .text-md-right {
+    text-align: right !important;
+  }
+  .text-md-center {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-lg-left {
+    text-align: left !important;
+  }
+  .text-lg-right {
+    text-align: right !important;
+  }
+  .text-lg-center {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .text-xl-left {
+    text-align: left !important;
+  }
+  .text-xl-right {
+    text-align: right !important;
+  }
+  .text-xl-center {
+    text-align: center !important;
+  }
 }

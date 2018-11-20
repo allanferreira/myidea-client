@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Auth from '../services/Auth'
 import PubSub from 'pubsub-js'
+import Auth from '../services/Auth'
 import api from '../services/api'
+import './Pitches.css'
 
 export default class Pitches extends Component {
 
@@ -56,35 +57,53 @@ export default class Pitches extends Component {
       <div className="pitches">
         <div className="container">
           <div className="row">
-            <div className="col">
-              {this.state.message}
+            <div className="col-12">
+              {this.state.message ? 
+                <div className="alertMessage">
+                  {this.state.message}
+                </div>
+              : <div></div>}
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-12 col-lg-6">
+              <h1>Pitches</h1>
+            </div>
+            <div className="col-12 col-lg-6 text-lg-right text-left">
               <Link to='/pitch/new'>
-                <button>Create a new pitch</button>
+                <button>Create</button>
               </Link>
             </div>
           </div>
+          <div className="row">
+            <div className="col-12">
+              <table>
+              <thead>
+                <tr>
+                  <th>Subjects</th>
+                  <th className="text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {this.state.pitches.map((pitch, index) => 
 
-          {this.state.pitches.map((pitch, index) => 
+                    <tr key={index}>
+                      <td>
+                        {pitch.subject}
+                      </td>
+                      <td className="text-right actions">
+                        <Link to={`/pitch/${pitch.id}`}>
+                          <button>Edit</button>
+                        </Link>
+                        <button onClick={this.removeHandle.bind(this, pitch.id)}>Remove</button>
+                      </td>
+                    </tr>
 
-            <div className="row" key={index}>
-              <div className="col">
-                {pitch.subject}
-                <br/>
-                {pitch.text}
-              </div>
-              <div className="col-auto">
-                <Link to={`/pitch/${pitch.id}`}>
-                  <button>Edit</button>
-                </Link>
-                <button onClick={this.removeHandle.bind(this, pitch.id)}>Remove</button>
-              </div>
+                  )}
+                </tbody>
+              </table>
             </div>
-
-          )}
+          </div>
         </div>
       </div>
     )

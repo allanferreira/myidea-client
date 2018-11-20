@@ -1,0 +1,24 @@
+.pitch .analyzer {
+    font-size: 14px
+}
+
+.pitch .tones {
+    padding: 10px 0;
+}
+
+.pitch .tone {
+    margin-right: 5px;
+    display: inline-block;
+    background: #626c78;
+    padding: 0 10px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.pitch .tone:last-child {
+    margin-right: 0;
+}
+
+.sentence-title {
+    font-weight: bold;
+}
