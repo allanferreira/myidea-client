@@ -1,44 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# myIdea Client
+> Esse repositório faz parte do projeto myIdea.
+> Esse aplicação é a versão web do projeto. 
+ 
+### Tecnologias
+Requer [Node] versão 8.10.0 ou superior
+* [React]   - Biblioteca para montar interfaces
+* [Webpack] - Bundler para EcmaScript
+* [Axios]   - Promises baseado em HTTP Client
 
-## Available Scripts
+### Instalação
+ myIdea requer [Npm] para instalação das dependências
 
-In the project directory, you can run:
+```sh
+$ git clone https://github.com/allanferreira/myidea-client.git
+$ cd myidea-client
+$ npm i
+```
 
-### `npm start`
+### Servidor
+Rode para abrir um servidor
+```sh
+$ npm start
+```
+### APIs
+Esse projeto consome as seguintes APIs:
+* [myIdea API] - Backend do myIdea
+* [IBM Watson] - Inteligência Artificial
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Em /src/services/api.js você encontra o endereço base da API de Backend, caso queira rodar a
+API localmente basta rodar o projeto [myIdea API] e editar o valor de baseURL para:
+```sh
+...
+baseURL: 'http://127.0.0.1:8000/api/',
+...
+```
+Ou deixe o valor de IP da máquina em Cloud da Digital Ocean
+```sh
+...
+baseURL: 'http://142.93.158.20/api/',
+...
+```
+[Digital Ocean]: <https://www.digitalocean.com/>
+[myIdea API]: <https://github.com/allanferreira/myidea-api>
+[Node]: <https://nodejs.org/en/>
+[Npm]: <https://www.npmjs.com/>
+[Axios]: <https://github.com/axios/axios>
+[Webpack]: <https://webpack.js.org/>
+[React]: <https://reactjs.org/>
+[IBM Watson]: <https://www.ibm.com/watson/br-pt/>
+[Laravel]: <https://laravel.com/>
